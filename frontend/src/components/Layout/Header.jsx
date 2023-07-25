@@ -36,7 +36,7 @@ const Header = ({ activeHeading }) => {
     const term = e.target.value;
     setSearchTerm(term);
 
-    const filteredProducts =allProducts && allProducts.filter((product) =>
+    const filteredProducts = allProducts && allProducts.filter((product) =>
         product.name.toLowerCase().includes(term.toLowerCase())
       );
       if(term !== " "){
