@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../../styles/styles";
-import Logo from "../../Assests/logo.png";
+import Logo from '../../Assests/logo.png'
 import { categoriesData, productData } from "../../static/data";
 import {
   AiOutlineHeart,
@@ -36,16 +36,14 @@ const Header = ({ activeHeading }) => {
     const term = e.target.value;
     setSearchTerm(term);
 
-    const filteredProducts =
-      productData &&
-      productData.filter((product) =>
+    const filteredProducts =allProducts && allProducts.filter((product) =>
         product.name.toLowerCase().includes(term.toLowerCase())
       );
-    if (term !== "") {
-      setSearchData(filteredProducts);
-    } else {
-      setSearchData(null);
-    }
+      if(term !== " "){
+        setSearchData(null)
+      }else{
+        setSearchData(filteredProducts)
+      }
   };
 
   window.addEventListener("scroll", () => {
@@ -62,7 +60,11 @@ const Header = ({ activeHeading }) => {
         <div className="hidden 800px:h-[50px] 800px:my-[20px] 800px:flex items-center justify-between">
           <div>
             <Link to="/">
-              <img src={Logo} className="w-[12rem]" alt="" />
+              <img
+                src={Logo}
+                className='w-[12rem]'
+                alt=""
+              />
             </Link>
           </div>
           {/* search box */}
@@ -98,27 +100,18 @@ const Header = ({ activeHeading }) => {
               </div>
             ) : null}
           </div>
-          <div
-            className={`${styles.normalFlex}`}
-            style={{ marginRight: "-4rem" }}
-          >
-            {isAuthenticated ? (
-              <Link
-                to="/profile"
-                className="relative cursor-pointer inline-block h-8 w-8 rounded-full overflow-hidden "
-              >
-                <img
-                  src={`${user?.avatar?.url}`}
-                  alt=""
-                  className="w-full h-full object-cover rounded-full"
-                />
-              </Link>
-            ) : (
-              <Link to={"/login"} className="relative cursor-pointer ">
-                <CgProfile size={30} />
-              </Link>
-            )}
-          </div>
+          <div className={`${styles.normalFlex }`} style={{marginRight: "-4rem"}}>
+                { isAuthenticated ? (
+                    <Link to="/profile" className="relative cursor-pointer inline-block h-8 w-8 rounded-full overflow-hidden ">
+                    <img src={`${user?.avatar?.url}`} alt="" className="w-full h-full object-cover rounded-full"/>
+                </Link>
+                ) :
+                    <Link to={"/login" }className="relative cursor-pointer ">
+                        <CgProfile
+                        size={30}
+                        />
+                    </Link>}
+                </div>
           <div className={`${styles.button}`}>
             <Link to={`${isSeller ? "/dashboard" : "/shop-create"}`}>
               <h1 className="text-[#fff] flex items-center">
@@ -129,41 +122,28 @@ const Header = ({ activeHeading }) => {
           </div>
         </div>
       </div>
-      <div
-        className={`${
-          active ? "shadow-sm fixed top-0 left-0 z-10" : ""
-        } transition hidden 800px:flex items-center justify-between w-full bg-[#fff] h-[70px]`}
-      >
+      <div className={`${active ? "shadow-sm fixed top-0 left-0 z-10" : ""} transition hidden 800px:flex items-center justify-between w-full bg-[#fff] h-[70px]`}>
         <div
           className={`${styles.section} relative ${styles.noramlFlex} justify-between`}
         >
           {/* categories */}
           <div>
-            <div
-              className="relative h-[60px] mt-[10px] w-[270px] hidden 1000px:block"
-              onClick={() => setDropDown((prev) => !prev)}
-            >
-              <BiMenuAltLeft
-                size={30}
-                className="absolute top-3 left-2 text-[#fff]"
-              />
-              <button
-                className={`h-[100%] w-full flex justify-between items-center pl-10 bg-[#191970] text-[#fff] font-sans text-lg font-[500] select-none rounded-t-md`}
-              >
-                All Categories
-              </button>
-              <IoIosArrowDown
-                size={20}
-                className="absolute right-2 top-4 cursor-pointer text-[#fff]"
-              />
-              {dropDown ? (
-                <DropDown
-                  categoriesData={categoriesData}
-                  setDropDown={setDropDown}
-                />
-              ) : null}
+                <div className="relative h-[60px] mt-[10px] w-[270px] hidden 1000px:block" onClick={() => setDropDown(prev => !prev)}>
+                    <BiMenuAltLeft size={30} className='absolute top-3 left-2 text-[#fff]' />
+                    <button className={`h-[100%] w-full flex justify-between items-center pl-10 bg-[#191970] text-[#fff] font-sans text-lg font-[500] select-none rounded-t-md`}>
+                        All Categories
+                    </button>
+                    <IoIosArrowDown size={20} className='absolute right-2 top-4 cursor-pointer text-[#fff]'  />
+                    {
+                        dropDown ? 
+                        (<DropDown 
+                        categoriesData = {categoriesData}
+                        setDropDown = {setDropDown} />
+                        ) : null
+                    }
+                </div>
+                
             </div>
-          </div>
           {/* navitems */}
           <div className={`${styles.noramlFlex}`}>
             <Navbar active={activeHeading} />
@@ -187,7 +167,9 @@ const Header = ({ activeHeading }) => {
                 className="relative cursor-pointer mr-[15px]"
                 onClick={() => setOpenCart(true)}
               >
-                <AiOutlineShoppingCart size={30} />
+                <AiOutlineShoppingCart
+                  size={30}
+                />
                 <span className="absolute right-0 top-0 rounded-full bg-[#191970] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
                   {cart && cart.length}
                 </span>
@@ -195,13 +177,12 @@ const Header = ({ activeHeading }) => {
             </div>
 
             <div className={`${styles.normalFlex}`}>
-              <div className="relative cursor-pointer mr-[15px]"></div>
+              <div className="relative cursor-pointer mr-[15px]">
+              </div>
             </div>
             <div className={`${styles.normalFlex}`}>
-              <button className="bg-[#191970] text-[#fff] p-3 rounded-md font-sans text-sm font-[500]">
-                Talk to Chatbot
-              </button>
-            </div>
+                    <button className="bg-[#191970] text-[#fff] p-3 rounded-md font-sans text-sm font-[500]">Talk to Chatbot</button>
+                </div>
 
             {/* cart popup */}
             {openCart ? <Cart setOpenCart={setOpenCart} /> : null}
@@ -231,7 +212,11 @@ const Header = ({ activeHeading }) => {
           </div>
           <div>
             <Link to="/">
-              <img src={Logo} alt="" className="mt-3 cursor-pointer w-[8rem]" />
+              <img
+                src={Logo}
+                alt=""
+                className="mt-3 cursor-pointer w-[8rem]"
+              />
             </Link>
           </div>
           <div>
