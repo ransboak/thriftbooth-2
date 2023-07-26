@@ -104,18 +104,7 @@ const Header = ({ activeHeading }) => {
               </div>
             ) : null}
           </div>
-          <div className={`${styles.normalFlex }`} style={{marginRight: "-4rem"}}>
-                { isAuthenticated ? (
-                    <Link to="/profile" className="relative cursor-pointer inline-block h-8 w-8 rounded-full overflow-hidden ">
-                    <img src={`${user?.avatar?.url}`} alt="" className="w-full h-full object-cover rounded-full"/>
-                </Link>
-                ) :
-                    <Link to={"/login" }className="relative cursor-pointer ">
-                        <CgProfile
-                        size={30}
-                        />
-                    </Link>}
-                </div>
+
           <div className={`${styles.button}`}>
             <Link to={`${isSeller ? "/dashboard" : "/shop-create"}`}>
               <h1 className="text-[#fff] flex items-center">
@@ -178,6 +167,18 @@ const Header = ({ activeHeading }) => {
                   {cart && cart.length}
                 </span>
               </div>
+              <div className={`${styles.normalFlex }`} style={{marginRight: "-4rem"}}>
+                { isAuthenticated ? (
+                    <Link to="/profile" className="relative cursor-pointer inline-block h-8 w-8 rounded-full overflow-hidden ">
+                    <img src={`${user?.avatar?.url}`} alt="" className="w-full h-full object-cover rounded-full"/>
+                </Link>
+                ) :
+                    <Link to={"/login" }className="relative cursor-pointer ">
+                        <CgProfile
+                        size={30}
+                        />
+                    </Link>}
+                </div>
             </div>
 
             <div className={`${styles.normalFlex}`}>
