@@ -11,7 +11,7 @@ const Footer = () => {
     <div className='bg-[#212121] text-white'>
       <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 bg-[#212121] py-7 border-b-2 border-gray-500">
         <h1 className="lg:text-4xl text-3xl md:mb-0 mb-6 lg:leading-normal font-semibold md:w-2/5">
-          <span className="text-[#191515]">
+          <span className="text-[#f17979]">
             Subscribe 
           </span> to get newsletters <br /> deals and offers
         </h1>
