@@ -96,7 +96,7 @@ const ProfileContent = ({ active }) => {
                   onChange={handleImage}
                 />
                 <label htmlFor="image">
-                  <AiOutlineCamera />
+                  <AiOutlineCamera className="cursor-pointer" />
                 </label>
               </div>
             </div>

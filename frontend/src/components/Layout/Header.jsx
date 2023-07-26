@@ -119,7 +119,7 @@ const Header = ({ activeHeading }) => {
           <div className={`${styles.button}`}>
             <Link to={`${isSeller ? "/dashboard" : "/shop-create"}`}>
               <h1 className="text-[#fff] flex items-center">
-                {isSeller ? "Go Dashboard" : "Become Seller"}{" "}
+                {isSeller ? "Go to Dashboard" : "Become Seller"}{" "}
                 <IoIosArrowForward className="ml-1" />
               </h1>
             </Link>
@@ -184,9 +184,6 @@ const Header = ({ activeHeading }) => {
               <div className="relative cursor-pointer mr-[15px]">
               </div>
             </div>
-            <div className={`${styles.normalFlex}`}>
-                    <button className="bg-[#191970] text-[#fff] p-3 rounded-md font-sans text-sm font-[500]">Talk to Chatbot</button>
-                </div>
 
             {/* cart popup */}
             {openCart ? <Cart setOpenCart={setOpenCart} /> : null}
