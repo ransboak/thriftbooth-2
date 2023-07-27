@@ -268,11 +268,11 @@ const Header = ({ activeHeading }) => {
                 <input
                   type="search"
                   placeholder="Search Product..."
-                  className="h-[40px] w-full px-2 bg-[#9e9eb0] border-[2px] rounded-md"
+                  className="h-[40px] w-full px-2 border-[#191970] border-[2px] rounded-md"
                   value={searchTerm}
                   onChange={handleSearchChange}
                 />
-                {searchData && searchData.length !== 0 ? (
+                {searchData && (
                   <div className="absolute bg-[#fff] z-10 shadow w-full left-0 p-3">
                     {searchData && searchData.map((i, index) => {
                       const d = i.name;
@@ -292,7 +292,7 @@ const Header = ({ activeHeading }) => {
                       );
                     })}
                   </div>
-                ) : null}
+                )}
               </div>
 
               <Navbar active={activeHeading} />
