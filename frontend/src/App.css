@@ -215,3 +215,6 @@ input[type=number] {
   color: crimson;
   transition: var(--transition-timing)
 }
+.game_iframe{
+  width: 100vw;
+}
