@@ -14,6 +14,7 @@ const EventsPage = () => {
         <div>
           <Header activeHeading={4} />
           <EventCard active={true} data={allEvents && allEvents[0]} />
+          <iframe src="https://private.gamify.com/custom-play/994742896" title="description"></iframe>
         </div>
       )}
     </>
